@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #E7FDFF;
+    color: #08AEF5;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.logo {
+    max-width: 60px;
+    margin-right: 10px;
+   
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #08AEF5;
+}
+
+#chat-box img {
+    max-width: 150px; /* Vous pouvez ajuster cette taille selon vos besoins */
+    max-height: 150px;
+    width: auto;
+    height: auto;
+}
+
+#chat-box {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+#message-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding-left: 10px;
+    outline: none;
+}
+
+#image-preview {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#send-button, #send-image-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#send-button img, #send-image-button img {
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+.icon {
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+.emoticon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.emoticon {
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.chat-message {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.delete-button, .download-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    padding: 5px;
+}
+
+.delete-button {
+    right: 40px;
+}
+
+.download-button {
+    right: 5px;
+}
+
+.delete-button img, .download-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Add specific styles to ensure only the icons are affected */
+.delete-button img, .download-button img {
+    width: 20px !important;
+    height: 20px !important;
+    vertical-align: middle;
+}

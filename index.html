@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Étudiant</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="log.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="log.ico" type="image/x-icon">
+    <meta name="theme-color" content="#08AEF5"> <!-- Ajoutez cette ligne -->
+    <meta name="description" content="Chat Étudiant en temps réel pour la communication instantanée."> <!-- Meta description -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.jpg" alt="Logo" class="logo">
+            <h1>Chat en temps réel</h1>
+        </header>
+        <div id="chat-box"></div>
+        <div class="emoticon-container">
+            <span class="emoticon">😀</span>
+            <span class="emoticon">😂</span>
+            <span class="emoticon">😍</span>
+            <span class="emoticon">😢</span>
+            <span class="emoticon">👍</span>
+        </div>
+        <div class="input-container">
+            <button id="send-image-button"><img src="clip-icon.png" alt="Ajouter une image" class="icon"></button>
+            <input type="text" id="message-input" placeholder="Tapez votre message...">
+            <input type="file" id="image-input" accept="image/*" style="display:none;">
+            <div id="image-preview" style="display:none;"></div>
+            <button id="send-button"><img src="send-icon.png" alt="Envoyer" class="icon"></button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/chat/service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+
+            navigator.serviceWorker.addEventListener('message', function(event) {
+                if (event.data.action === 'focusMessage') {
+                    highlightMessage(event.data.messageId);
+                }
+            });
+        }
+
+        function highlightMessage(messageId) {
+            const messageElement = document.querySelector(`[data-message-id="${messageId}"]`);
+            if (messageElement) {
+                messageElement.style.backgroundColor = '#ff0'; // Highlight the message
+                messageElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
